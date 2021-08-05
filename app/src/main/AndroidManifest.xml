@@ -20,6 +20,10 @@
         </activity>
         <activity android:name=".playground.SimpleStreamFlow" />
         <activity android:name=".playground.FlowsAreCold" />
+        <activity android:name=".playground.MapOperator" />
+        <activity android:name=".playground.TransformOperator" />
+        <activity android:name=".playground.TakeOperator" />
+        <activity android:name=".playground.ReduceOperator" />
     </application>
 
 </manifest>

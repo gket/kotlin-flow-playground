@@ -8,17 +8,15 @@ import androidx.lifecycle.lifecycleScope
 import com.gketdev.flowplayground.R
 import com.gketdev.flowplayground.data.Food
 import com.gketdev.flowplayground.utils.FoodGenerator
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
-class FlowsAreCold : AppCompatActivity() {
+class TakeOperator : AppCompatActivity() {
 
     private var text = ""
-    private var textDescription = " Flows are cold\n" +
-            "    Hot streams push values even when there is no one consuming them.\n" +
-            "    However, cold streams, start pushing values only when you start collecting!"
+    private var textDescription = "Take 3!"
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,28 +25,29 @@ class FlowsAreCold : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.textView)
         val textViewDescription = findViewById<TextView>(R.id.textViewDescription)
 
-        val list = FoodGenerator.generateFoods()
-
         textViewDescription.text = textDescription
 
+        val list = FoodGenerator.generateFoods()
+
         val streamFlow: Flow<Food> = flow {
-            repeat(list.size) {
-                emit(list[it])
-                delay(2000)
+            try {
+                repeat(list.size) {
+                    emit(list[it])
+                    delay(100)
+                }
+            } finally {
+
+                    textView.text = "$text \n Done? OMG! You are crazy"
+
             }
         }
 
         lifecycleScope.launchWhenCreated {
-            //10 seconds after streamed and lets watch
-            delay(10000)
-            textViewDescription.text = "Cool"
-            streamFlow.collect {
+            streamFlow.take(3).collect {
                 text += it.name + "\n"
                 textView.text = text
             }
         }
 
-
     }
-
 }

@@ -33,4 +33,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
+    <Button
+        android:id="@+id/buttonMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MAP OPERATOR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCold" />
+
+    <Button
+        android:id="@+id/buttonTransform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TRANSFORM OPERATOR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMap" />
+
+    <Button
+        android:id="@+id/buttonTake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TAKE OPERATOR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTransform" />
+
+    <Button
+        android:id="@+id/buttonReduce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REDUCE OPERATOR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTake" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
