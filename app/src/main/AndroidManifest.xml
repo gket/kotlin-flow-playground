@@ -24,6 +24,7 @@
         <activity android:name=".playground.TransformOperator" />
         <activity android:name=".playground.TakeOperator" />
         <activity android:name=".playground.ReduceOperator" />
+        <activity android:name=".playground.FilterOperator" />
     </application>
 
 </manifest>
