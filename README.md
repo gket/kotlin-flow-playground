@@ -8,7 +8,7 @@
 #### -Transform Operator
 #### -Take Operator
 #### -Reduce Operator
-
+#### -Filter Operator
 _____________________
 TO DO : COMBINING AND ADVANCED EXAMPLES
 _____________________
