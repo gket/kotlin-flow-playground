@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         val buttonTransform = findViewById<Button>(R.id.buttonTransform)
         val buttonTake = findViewById<Button>(R.id.buttonTake)
         val buttonReduce = findViewById<Button>(R.id.buttonReduce)
+        val buttonFilter = findViewById<Button>(R.id.buttonFilter)
 
         button.setOnClickListener {
             startActivity(Intent(this, SimpleStreamFlow::class.java))
@@ -38,6 +39,9 @@ class MainActivity : AppCompatActivity() {
         }
         buttonReduce.setOnClickListener {
             startActivity(Intent(this, ReduceOperator::class.java))
+        }
+        buttonFilter.setOnClickListener {
+            startActivity(Intent(this, FilterOperator::class.java))
         }
     }
 }
