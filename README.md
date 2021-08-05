@@ -1,6 +1,6 @@
 # kotlin-flow-playground by gketdev
 
-### This example includes some experiments from my side about the flow.
+### This example includes: 
 
 #### -Simple Stream
 #### -Cold Stream Explanation
