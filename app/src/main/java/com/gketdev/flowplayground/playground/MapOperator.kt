@@ -8,17 +8,21 @@ import androidx.lifecycle.lifecycleScope
 import com.gketdev.flowplayground.R
 import com.gketdev.flowplayground.data.Food
 import com.gketdev.flowplayground.utils.FoodGenerator
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.*
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 
-class FlowsAreCold : AppCompatActivity() {
+class MapOperator : AppCompatActivity() {
+    /*
+ Flows are cold
+ Hot streams push values even when there is no one consuming them.
+ However, cold streams, start pushing values only when you start collecting!
+  */
 
     private var text = ""
-    private var textDescription = " Flows are cold\n" +
-            "    Hot streams push values even when there is no one consuming them.\n" +
-            "    However, cold streams, start pushing values only when you start collecting!"
+    private var textDescription = "I can play with datas because I am Flow!"
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,28 +31,26 @@ class FlowsAreCold : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.textView)
         val textViewDescription = findViewById<TextView>(R.id.textViewDescription)
 
-        val list = FoodGenerator.generateFoods()
-
         textViewDescription.text = textDescription
+
+        val list = FoodGenerator.generateFoods()
 
         val streamFlow: Flow<Food> = flow {
             repeat(list.size) {
                 emit(list[it])
-                delay(2000)
+                delay(100)
             }
         }
 
         lifecycleScope.launchWhenCreated {
-            //10 seconds after streamed and lets watch
-            delay(10000)
-            textViewDescription.text = "Cool"
-            streamFlow.collect {
-                text += it.name + "\n"
+            streamFlow.map {
+                it.price
+            }.collect {
+                text += it.toString() + "\n"
                 textView.text = text
             }
         }
 
 
     }
-
 }
