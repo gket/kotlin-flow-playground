@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         val buttonTake = findViewById<Button>(R.id.buttonTake)
         val buttonReduce = findViewById<Button>(R.id.buttonReduce)
         val buttonFilter = findViewById<Button>(R.id.buttonFilter)
+        val buttonZip = findViewById<Button>(R.id.buttonZip)
+        val buttonCombine = findViewById<Button>(R.id.buttonCombine)
 
         button.setOnClickListener {
             startActivity(Intent(this, SimpleStreamFlow::class.java))
@@ -42,6 +44,12 @@ class MainActivity : AppCompatActivity() {
         }
         buttonFilter.setOnClickListener {
             startActivity(Intent(this, FilterOperator::class.java))
+        }
+        buttonZip.setOnClickListener {
+            startActivity(Intent(this, ZipOperator::class.java))
+        }
+        buttonCombine.setOnClickListener {
+            startActivity(Intent(this, CombineOperator::class.java))
         }
     }
 }
