@@ -9,6 +9,8 @@
 #### -Take Operator
 #### -Reduce Operator
 #### -Filter Operator
+#### -Combine Operator
+#### -Zip Operator
 _____________________
-TO DO : COMBINING AND ADVANCED EXAMPLES
+TO DO : ADVANCED EXAMPLES
 _____________________
