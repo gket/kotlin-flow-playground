@@ -25,6 +25,8 @@
         <activity android:name=".playground.TakeOperator" />
         <activity android:name=".playground.ReduceOperator" />
         <activity android:name=".playground.FilterOperator" />
+        <activity android:name=".playground.ZipOperator" />
+        <activity android:name=".playground.CombineOperator" />
     </application>
 
 </manifest>
